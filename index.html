@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows 98</title>
+  <link rel="stylesheet" href="98.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Desktop -->
+  <div id="desktop">
+    <!-- Desktop Icons -->
+    <div id="desktop-icons">
+      <div class="desktop-icon" data-app="mycomputer" ondblclick="openWindow('mycomputer')">
+        <div class="icon-img icon-mycomputer"></div>
+        <span>Arbeitsplatz</span>
+      </div>
+      <div class="desktop-icon" data-app="notepad" ondblclick="openWindow('notepad')">
+        <div class="icon-img icon-notepad"></div>
+        <span>Editor</span>
+      </div>
+      <div class="desktop-icon" data-app="msdos" ondblclick="openWindow('msdos')">
+        <div class="icon-img icon-msdos"></div>
+        <span>MS-DOS</span>
+      </div>
+      <div class="desktop-icon" data-app="minesweeper" ondblclick="openWindow('minesweeper')">
+        <div class="icon-img icon-minesweeper"></div>
+        <span>Minesweeper</span>
+      </div>
+      <div class="desktop-icon" data-app="calculator" ondblclick="openWindow('calculator')">
+        <div class="icon-img icon-calculator"></div>
+        <span>Rechner</span>
+      </div>
+      <div class="desktop-icon" data-app="iexplore" ondblclick="openWindow('iexplore')">
+        <div class="icon-img icon-ie-desktop"></div>
+        <span>Internet Explorer</span>
+      </div>
+      <div class="desktop-icon" data-app="recyclebin" ondblclick="openWindow('recyclebin')">
+        <div class="icon-img icon-recyclebin"></div>
+        <span>Papierkorb</span>
+      </div>
+      <div class="desktop-icon" data-app="network" ondblclick="openWindow('network')">
+        <div class="icon-img icon-network-desktop"></div>
+        <span>Netzwerk&shy;umgebung</span>
+      </div>
+    </div>
+
+    <!-- ==================== WINDOWS ==================== -->
+
+    <!-- My Computer Window -->
+    <div class="window app-window" id="window-mycomputer" style="display:none; width:500px; height:380px;">
+      <div class="title-bar" data-window="mycomputer">
+        <div class="title-bar-text">
+          <span class="title-icon icon-mycomputer-sm"></span> Arbeitsplatz
+        </div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize" onclick="minimizeWindow('mycomputer')"></button>
+          <button aria-label="Maximize" onclick="maximizeWindow('mycomputer')"></button>
+          <button aria-label="Close" onclick="closeWindow('mycomputer')"></button>
+        </div>
+      </div>
+      <div class="window-body" style="padding: 8px; overflow: auto; height: calc(100% - 56px);">
+        <div class="mycomputer-content">
+          <div class="explorer-icon" ondblclick="openDriveC()">
+            <div class="icon-img icon-drive-c"></div>
+            <span>(C:)</span>
+          </div>
+          <div class="explorer-icon" ondblclick="showWin98Error('Laufwerk D:\\', 'Auf D:\\ kann nicht zugegriffen werden.\nDas Gerät ist nicht bereit.', 'critical')">
+            <div class="icon-img icon-drive-cd"></div>
+            <span>(D:) CD-ROM</span>
+          </div>
+          <div class="explorer-icon" ondblclick="triggerErrorOrBSOD('Systemsteuerung', 'SYSTEMSTEUERUNG.CPL')">
+            <div class="icon-img icon-control-panel"></div>
+            <span>Systemsteuerung</span>
+          </div>
+          <div class="explorer-icon" ondblclick="triggerErrorOrBSOD('Drucker', 'DRUCKER')">
+            <div class="icon-img icon-printer"></div>
+            <span>Drucker</span>
+          </div>
+          <div class="explorer-icon" ondblclick="triggerErrorOrBSOD('DFÜ-Netzwerk', 'DFUE.EXE')">
+            <div class="icon-img icon-dialup"></div>
+            <span>DFÜ-Netzwerk</span>
+          </div>
+        </div>
+      </div>
+      <div class="status-bar">
+        <p class="status-bar-field">5 Objekt(e)</p>
+        <p class="status-bar-field">Arbeitsplatz</p>
+      </div>
+    </div>
+
+    <!-- Notepad Window -->
+    <div class="window app-window" id="window-notepad" style="display:none; width:560px; height:420px;">
+      <div class="title-bar" data-window="notepad">
+        <div class="title-bar-text">
+          <span class="title-icon icon-notepad-sm"></span> Unbenannt - Editor
+        </div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize" onclick="minimizeWindow('notepad')"></button>
+          <button aria-label="Maximize" onclick="maximizeWindow('notepad')"></button>
+          <button aria-label="Close" onclick="closeWindow('notepad')"></button>
+        </div>
+      </div>
+      <div class="notepad-menubar">
+        <div class="notepad-menu-item" data-menu="datei">
+          Datei
+          <div class="notepad-dropdown" id="menu-datei">
+            <div class="notepad-dropdown-item" onclick="notepadNew()">Neu</div>
+            <div class="notepad-dropdown-item" onclick="notepadOpen()">Öffnen...</div>
+            <div class="notepad-dropdown-item" onclick="notepadSave()">Speichern</div>
+            <div class="notepad-dropdown-item" onclick="notepadSaveAs()">Speichern unter...</div>
+            <div class="notepad-dropdown-separator"></div>
+            <div class="notepad-dropdown-item" onclick="closeWindow('notepad')">Beenden</div>
+          </div>
+        </div>
+        <div class="notepad-menu-item" data-menu="bearbeiten">
+          Bearbeiten
+          <div class="notepad-dropdown" id="menu-bearbeiten">
+            <div class="notepad-dropdown-item" onclick="notepadUndo()">Rückgängig</div>
+            <div class="notepad-dropdown-separator"></div>
+            <div class="notepad-dropdown-item" onclick="notepadCut()">Ausschneiden</div>
+            <div class="notepad-dropdown-item" onclick="notepadCopy()">Kopieren</div>
+            <div class="notepad-dropdown-item" onclick="notepadPaste()">Einfügen</div>
+            <div class="notepad-dropdown-item" onclick="notepadDelete()">Löschen</div>
+            <div class="notepad-dropdown-separator"></div>
+            <div class="notepad-dropdown-item" onclick="notepadSelectAll()">Alles markieren</div>
+            <div class="notepad-dropdown-item" onclick="notepadTimeDate()">Uhrzeit/Datum</div>
+          </div>
+        </div>
+        <div class="notepad-menu-item" data-menu="hilfe">
+          ?
+          <div class="notepad-dropdown" id="menu-hilfe">
+            <div class="notepad-dropdown-item" onclick="alert('Editor für Windows 98\nVersion 1.0\n\n© Microsoft Corporation 1998')">Info über Editor</div>
+          </div>
+        </div>
+      </div>
+      <div class="window-body notepad-body">
+        <textarea id="notepad-textarea" class="notepad-textarea" spellcheck="false"></textarea>
+      </div>
+      <div class="status-bar">
+        <p class="status-bar-field" id="notepad-status">Zeile 1, Spalte 1</p>
+      </div>
+    </div>
+
+    <!-- MS-DOS Window -->
+    <div class="window app-window" id="window-msdos" style="display:none; width:680px; height:440px;">
+      <div class="title-bar" data-window="msdos">
+        <div class="title-bar-text">
+          <span class="title-icon icon-msdos-sm"></span> MS-DOS-Eingabeaufforderung
+        </div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize" onclick="minimizeWindow('msdos')"></button>
+          <button aria-label="Maximize" onclick="maximizeWindow('msdos')"></button>
+          <button aria-label="Close" onclick="closeWindow('msdos')"></button>
+        </div>
+      </div>
+      <div class="window-body dos-body" onclick="focusDosInput()">
+        <div id="dos-output"></div>
+        <div id="dos-input-line">
+          <span id="dos-prompt">C:\WINDOWS&gt;</span>
+          <input type="text" id="dos-input" spellcheck="false" autocomplete="off">
+        </div>
+      </div>
+    </div>
+
+    <!-- Minesweeper Window -->
+    <div class="window app-window" id="window-minesweeper" style="display:none; width:auto; height:auto;">
+      <div class="title-bar" data-window="minesweeper">
+        <div class="title-bar-text">
+          <span class="title-icon icon-minesweeper-sm"></span> Minesweeper
+        </div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize" onclick="minimizeWindow('minesweeper')"></button>
+          <button aria-label="Close" onclick="closeWindow('minesweeper')"></button>
+        </div>
+      </div>
+      <div class="minesweeper-menubar">
+        <div class="notepad-menu-item" data-menu="ms-spiel">
+          Spiel
+          <div class="notepad-dropdown" id="menu-ms-spiel">
+            <div class="notepad-dropdown-item" onclick="minesweeperNewGame()">Neu</div>
+            <div class="notepad-dropdown-separator"></div>
+            <div class="notepad-dropdown-item" onclick="setMinesweeperDifficulty('beginner')">Anfänger</div>
+            <div class="notepad-dropdown-item" onclick="setMinesweeperDifficulty('intermediate')">Fortgeschritten</div>
+            <div class="notepad-dropdown-item" onclick="setMinesweeperDifficulty('expert')">Experte</div>
+            <div class="notepad-dropdown-separator"></div>
+            <div class="notepad-dropdown-item" onclick="closeWindow('minesweeper')">Beenden</div>
+          </div>
+        </div>
+        <div class="notepad-menu-item" data-menu="ms-hilfe">
+          ?
+          <div class="notepad-dropdown" id="menu-ms-hilfe">
+            <div class="notepad-dropdown-item" onclick="alert('Minesweeper für Windows 98\nVersion 1.0')">Info</div>
+          </div>
+        </div>
+      </div>
+      <div class="window-body minesweeper-body">
+        <div class="minesweeper-panel">
+          <div class="minesweeper-header">
+            <div class="ms-counter" id="ms-mines-counter">010</div>
+            <button class="ms-face-btn" id="ms-face-btn" onclick="minesweeperNewGame()">🙂</button>
+            <div class="ms-counter" id="ms-timer">000</div>
+          </div>
+          <div class="minesweeper-grid" id="minesweeper-grid"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calculator Window -->
+    <div class="window app-window" id="window-calculator" style="display:none; width:auto; height:auto;">
+      <div class="title-bar" data-window="calculator">
+        <div class="title-bar-text">
+          <span class="title-icon icon-calculator-sm"></span> Rechner
+        </div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize" onclick="minimizeWindow('calculator')"></button>
+          <button aria-label="Close" onclick="closeWindow('calculator')"></button>
+        </div>
+      </div>
+      <div class="calc-menubar">
+        <div class="notepad-menu-item" data-menu="calc-bearbeiten">
+          Bearbeiten
+          <div class="notepad-dropdown" id="menu-calc-bearbeiten">
+            <div class="notepad-dropdown-item" onclick="calcCopy()">Kopieren</div>
+            <div class="notepad-dropdown-item" onclick="calcPaste()">Einfügen</div>
+          </div>
+        </div>
+        <div class="notepad-menu-item" data-menu="calc-ansicht">
+          Ansicht
+          <div class="notepad-dropdown" id="menu-calc-ansicht">
+            <div class="notepad-dropdown-item" onclick="">Standard</div>
+            <div class="notepad-dropdown-item" onclick="showWin98Error('Rechner', 'Die wissenschaftliche Ansicht ist nicht verf\u00fcgbar.', 'warning')">Wissenschaftlich</div>
+          </div>
+        </div>
+        <div class="notepad-menu-item" data-menu="calc-hilfe">
+          ?
+          <div class="notepad-dropdown" id="menu-calc-hilfe">
+            <div class="notepad-dropdown-item" onclick="alert('Rechner f\u00fcr Windows 98\nVersion 5.0\n\n\u00a9 Microsoft Corporation 1998')">Info über Rechner</div>
+          </div>
+        </div>
+      </div>
+      <div class="window-body calc-body">
+        <div class="calc-panel">
+          <input type="text" id="calc-display" class="calc-display" value="0." readonly>
+          <div class="calc-memory-indicator" id="calc-memory-indicator"></div>
+          <div class="calc-buttons">
+            <div class="calc-row">
+              <button class="calc-btn calc-btn-red" onclick="calcMemoryClear()">MC</button>
+              <button class="calc-btn calc-btn-func" onclick="calcBackspace()">Backspace</button>
+              <button class="calc-btn calc-btn-func" onclick="calcClearEntry()">CE</button>
+              <button class="calc-btn calc-btn-func" onclick="calcClear()">C</button>
+            </div>
+            <div class="calc-row">
+              <button class="calc-btn calc-btn-red" onclick="calcMemoryRecall()">MR</button>
+              <button class="calc-btn calc-btn-num" onclick="calcDigit('7')">7</button>
+              <button class="calc-btn calc-btn-num" onclick="calcDigit('8')">8</button>
+              <button class="calc-btn calc-btn-num" onclick="calcDigit('9')">9</button>
+              <button class="calc-btn calc-btn-op" onclick="calcOperator('/')">/</button>
+              <button class="calc-btn calc-btn-blue" onclick="calcSqrt()">sqrt</button>
+            </div>
+            <div class="calc-row">
+              <button class="calc-btn calc-btn-red" onclick="calcMemoryStore()">MS</button>
+              <button class="calc-btn calc-btn-num" onclick="calcDigit('4')">4</button>
+              <button class="calc-btn calc-btn-num" onclick="calcDigit('5')">5</button>
+              <button class="calc-btn calc-btn-num" onclick="calcDigit('6')">6</button>
+              <button class="calc-btn calc-btn-op" onclick="calcOperator('*')">*</button>
+              <button class="calc-btn calc-btn-blue" onclick="calcPercent()">%</button>
+            </div>
+            <div class="calc-row">
+              <button class="calc-btn calc-btn-red" onclick="calcMemoryAdd()">M+</button>
+              <button class="calc-btn calc-btn-num" onclick="calcDigit('1')">1</button>
+              <button class="calc-btn calc-btn-num" onclick="calcDigit('2')">2</button>
+              <button class="calc-btn calc-btn-num" onclick="calcDigit('3')">3</button>
+              <button class="calc-btn calc-btn-op" onclick="calcOperator('-')">-</button>
+              <button class="calc-btn calc-btn-blue" onclick="calcReciprocal()">1/x</button>
+            </div>
+            <div class="calc-row">
+              <button class="calc-btn calc-btn-red" onclick=""></button>
+              <button class="calc-btn calc-btn-num" onclick="calcDigit('0')">0</button>
+              <button class="calc-btn calc-btn-num" onclick="calcNegate()">+/-</button>
+              <button class="calc-btn calc-btn-num" onclick="calcDecimal()">.</button>
+              <button class="calc-btn calc-btn-op" onclick="calcOperator('+')">+</button>
+              <button class="calc-btn calc-btn-blue" onclick="calcEquals()">=</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Internet Explorer Window -->
+    <div class="window app-window" id="window-iexplore" style="display:none; width:700px; height:520px;">
+      <div class="title-bar" data-window="iexplore">
+        <div class="title-bar-text">
+          <span class="title-icon icon-ie-sm"></span> Microsoft Internet Explorer
+        </div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize" onclick="minimizeWindow('iexplore')"></button>
+          <button aria-label="Maximize" onclick="maximizeWindow('iexplore')"></button>
+          <button aria-label="Close" onclick="closeWindow('iexplore')"></button>
+        </div>
+      </div>
+      <div class="ie-toolbar">
+        <button class="ie-toolbar-btn" onclick="ieBack()" title="Zurück">◀ Zurück</button>
+        <button class="ie-toolbar-btn" onclick="ieForward()" title="Vorwärts">Vorwärts ▶</button>
+        <button class="ie-toolbar-btn" onclick="ieStop()" title="Abbrechen">✕ Abbrechen</button>
+        <button class="ie-toolbar-btn" onclick="ieRefresh()" title="Aktualisieren">↻ Aktualisieren</button>
+        <button class="ie-toolbar-btn" onclick="ieHome()" title="Startseite">🏠 Startseite</button>
+      </div>
+      <div class="ie-addressbar">
+        <label class="ie-address-label">Adresse</label>
+        <input type="text" id="ie-url-input" class="ie-url-input" value="about:blank" placeholder="http://www.example.com">
+        <button class="ie-go-btn" onclick="ieNavigate()">Wechseln</button>
+      </div>
+      <div class="window-body ie-body">
+        <div id="ie-content" class="ie-content">
+          <div class="ie-start-page">
+            <div class="ie-logo"></div>
+            <h2 style="color: #003399; font-family: Arial, sans-serif; margin: 0;">Microsoft Internet Explorer 4.0</h2>
+            <p style="font-family: Arial, sans-serif; font-size: 12px; color: #666; margin-top: 8px;">Willkommen im Internet!</p>
+            <p style="font-family: Arial, sans-serif; font-size: 11px; color: #808080; margin-top: 4px;">Geben Sie eine URL in die Adressleiste ein und drücken Sie Enter oder klicken Sie auf "Wechseln".</p>
+          </div>
+        </div>
+      </div>
+      <div class="status-bar ie-statusbar">
+        <p class="status-bar-field" id="ie-status">Fertig</p>
+        <p class="status-bar-field" id="ie-zone">🌐 Internet</p>
+      </div>
+    </div>
+
+    <!-- Recycle Bin Window -->
+    <div class="window app-window" id="window-recyclebin" style="display:none; width:450px; height:320px;">
+      <div class="title-bar" data-window="recyclebin">
+        <div class="title-bar-text">
+          <span class="title-icon icon-recyclebin-sm"></span> Papierkorb
+        </div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize" onclick="minimizeWindow('recyclebin')"></button>
+          <button aria-label="Maximize" onclick="maximizeWindow('recyclebin')"></button>
+          <button aria-label="Close" onclick="closeWindow('recyclebin')"></button>
+        </div>
+      </div>
+      <div class="window-body" style="padding: 16px; text-align: center; height: calc(100% - 56px);">
+        <p style="margin-top: 60px; color: #808080;">Der Papierkorb ist leer.</p>
+      </div>
+      <div class="status-bar">
+        <p class="status-bar-field">0 Objekt(e)</p>
+      </div>
+    </div>
+
+    <!-- Network Dialog Window -->
+    <div class="window app-window" id="window-network" style="display:none; width:420px; height:auto;">
+      <div class="title-bar" data-window="network">
+        <div class="title-bar-text">
+          <span class="title-icon icon-network-sm"></span> Netzwerkverbindung - Status
+        </div>
+        <div class="title-bar-controls">
+          <button aria-label="Help"></button>
+          <button aria-label="Close" onclick="closeWindow('network')"></button>
+        </div>
+      </div>
+      <div class="window-body" style="padding: 12px;">
+        <div role="tabpanel">
+          <menu role="tablist">
+            <button role="tab" aria-selected="true">Allgemein</button>
+            <button role="tab">Details</button>
+          </menu>
+          <article role="tabpanel">
+            <div class="network-info">
+              <fieldset>
+                <legend>Verbindungsinformationen</legend>
+                <div class="field-row-stacked" style="margin-bottom: 8px;">
+                  <label><strong>Status:</strong></label>
+                  <span style="color: green;">● Verbunden</span>
+                </div>
+                <div class="field-row-stacked" style="margin-bottom: 8px;">
+                  <label><strong>Öffentliche IP-Adresse:</strong></label>
+                  <input type="text" id="network-ip" readonly value="Wird geladen..." style="width: 100%;">
+                </div>
+                <div class="field-row-stacked" style="margin-bottom: 8px;">
+                  <label><strong>Browser (User-Agent):</strong></label>
+                  <textarea id="network-useragent" readonly rows="3" style="width: 100%; resize: none; font-size: 11px;"></textarea>
+                </div>
+              </fieldset>
+              <fieldset style="margin-top: 8px;">
+                <legend>Aktivität</legend>
+                <div class="field-row" style="justify-content: space-around;">
+                  <div style="text-align: center;">
+                    <div class="icon-img icon-net-send"></div>
+                    <div style="font-size: 11px; margin-top: 4px;">Gesendet</div>
+                    <div style="font-size: 11px;" id="net-sent">0 Pakete</div>
+                  </div>
+                  <div style="text-align: center;">
+                    <div class="icon-img icon-net-recv"></div>
+                    <div style="font-size: 11px; margin-top: 4px;">Empfangen</div>
+                    <div style="font-size: 11px;" id="net-recv">0 Pakete</div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </article>
+        </div>
+        <div style="text-align: right; margin-top: 8px;">
+          <button onclick="closeWindow('network')" style="width: 75px;">OK</button>
+          <button onclick="closeWindow('network')" style="width: 75px; margin-left: 4px;">Schließen</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /desktop -->
+
+  <!-- ==================== START MENU ==================== -->
+  <div id="start-menu" class="window" style="display:none;">
+    <div class="start-menu-sidebar">
+      <span class="start-menu-sidebar-text">Windows<strong>98</strong></span>
+    </div>
+    <div class="start-menu-content">
+      <div class="start-menu-item has-submenu" data-submenu="programme">
+        <div class="start-menu-icon icon-programs"></div>
+        <span>Programme</span>
+        <span class="submenu-arrow">▶</span>
+        <div class="start-submenu" id="submenu-programme">
+          <div class="start-menu-item" onclick="openWindow('notepad'); closeStartMenu();">
+            <div class="start-menu-icon icon-notepad-sm"></div>
+            <span>Editor</span>
+          </div>
+          <div class="start-menu-item" onclick="openWindow('msdos'); closeStartMenu();">
+            <div class="start-menu-icon icon-msdos-sm"></div>
+            <span>MS-DOS-Eingabeaufforderung</span>
+          </div>
+          <div class="start-menu-item" onclick="openWindow('minesweeper'); closeStartMenu();">
+            <div class="start-menu-icon icon-minesweeper-sm"></div>
+            <span>Minesweeper</span>
+          </div>
+          <div class="start-menu-item" onclick="openWindow('calculator'); closeStartMenu();">
+            <div class="start-menu-icon icon-calculator-sm"></div>
+            <span>Rechner</span>
+          </div>
+          <div class="start-menu-item" onclick="openWindow('mycomputer'); closeStartMenu();">
+            <div class="start-menu-icon icon-mycomputer-sm"></div>
+            <span>Windows Explorer</span>
+          </div>
+          <div class="start-menu-item" onclick="openWindow('iexplore'); closeStartMenu();">
+            <div class="start-menu-icon icon-ie-sm"></div>
+            <span>Internet Explorer</span>
+          </div>
+        </div>
+      </div>
+      <div class="start-menu-item has-submenu" data-submenu="favoriten">
+        <div class="start-menu-icon icon-favorites"></div>
+        <span>Favoriten</span>
+        <span class="submenu-arrow">▶</span>
+        <div class="start-submenu" id="submenu-favoriten">
+          <div class="start-menu-item" onclick="openWindow('iexplore'); setTimeout(() => { document.getElementById('ie-url-input').value='yahoo.com'; ieNavigate(); }, 300); closeStartMenu();">
+            <div class="start-menu-icon icon-ie"></div>
+            <span>Yahoo! (1996)</span>
+          </div>
+          <div class="start-menu-item" onclick="openWindow('iexplore'); setTimeout(() => { document.getElementById('ie-url-input').value='google.com'; ieNavigate(); }, 300); closeStartMenu();">
+            <div class="start-menu-icon icon-ie"></div>
+            <span>Google (1998)</span>
+          </div>
+          <div class="start-menu-item" onclick="openWindow('iexplore'); setTimeout(() => { document.getElementById('ie-url-input').value='microsoft.com'; ieNavigate(); }, 300); closeStartMenu();">
+            <div class="start-menu-icon icon-ie"></div>
+            <span>Microsoft (1996)</span>
+          </div>
+          <div class="start-menu-item" onclick="openWindow('iexplore'); setTimeout(() => { document.getElementById('ie-url-input').value='apple.com'; ieNavigate(); }, 300); closeStartMenu();">
+            <div class="start-menu-icon icon-ie"></div>
+            <span>Apple (1997)</span>
+          </div>
+          <div class="start-menu-item" onclick="openWindow('iexplore'); setTimeout(() => { document.getElementById('ie-url-input').value='amazon.com'; ieNavigate(); }, 300); closeStartMenu();">
+            <div class="start-menu-icon icon-ie"></div>
+            <span>Amazon (1999)</span>
+          </div>
+          <div class="start-menu-item" onclick="openWindow('iexplore'); setTimeout(() => { document.getElementById('ie-url-input').value='ebay.com'; ieNavigate(); }, 300); closeStartMenu();">
+            <div class="start-menu-icon icon-ie"></div>
+            <span>eBay (1999)</span>
+          </div>
+          <div class="start-menu-item" onclick="openWindow('iexplore'); setTimeout(() => { document.getElementById('ie-url-input').value='aol.com'; ieNavigate(); }, 300); closeStartMenu();">
+            <div class="start-menu-icon icon-ie"></div>
+            <span>AOL (1997)</span>
+          </div>
+          <div class="start-menu-item" onclick="openWindow('iexplore'); setTimeout(() => { document.getElementById('ie-url-input').value='altavista.com'; ieNavigate(); }, 300); closeStartMenu();">
+            <div class="start-menu-icon icon-ie"></div>
+            <span>AltaVista (1999)</span>
+          </div>
+          <div class="start-menu-item" onclick="openWindow('iexplore'); setTimeout(() => { document.getElementById('ie-url-input').value='geocities.com'; ieNavigate(); }, 300); closeStartMenu();">
+            <div class="start-menu-icon icon-ie"></div>
+            <span>GeoCities (1998)</span>
+          </div>
+          <div class="start-menu-item" onclick="openWindow('iexplore'); setTimeout(() => { document.getElementById('ie-url-input').value='lycos.com'; ieNavigate(); }, 300); closeStartMenu();">
+            <div class="start-menu-icon icon-ie"></div>
+            <span>Lycos (1998)</span>
+          </div>
+          <div class="start-menu-item" onclick="openWindow('iexplore'); setTimeout(() => { document.getElementById('ie-url-input').value='facebook.com'; ieNavigate(); }, 300); closeStartMenu();">
+            <div class="start-menu-icon icon-ie"></div>
+            <span>Thefacebook (2005)</span>
+          </div>
+          <div class="start-menu-item" onclick="openWindow('iexplore'); setTimeout(() => { document.getElementById('ie-url-input').value='myspace.com'; ieNavigate(); }, 300); closeStartMenu();">
+            <div class="start-menu-icon icon-ie"></div>
+            <span>MySpace (2005)</span>
+          </div>
+          <div class="start-menu-item" onclick="openWindow('iexplore'); setTimeout(() => { document.getElementById('ie-url-input').value='wikipedia.org'; ieNavigate(); }, 300); closeStartMenu();">
+            <div class="start-menu-icon icon-ie"></div>
+            <span>Wikipedia (2001)</span>
+          </div>
+          <div class="start-menu-item" onclick="openWindow('iexplore'); setTimeout(() => { document.getElementById('ie-url-input').value='cnn.com'; ieNavigate(); }, 300); closeStartMenu();">
+            <div class="start-menu-icon icon-ie"></div>
+            <span>CNN (2000)</span>
+          </div>
+          <div class="start-menu-item" onclick="openWindow('iexplore'); setTimeout(() => { document.getElementById('ie-url-input').value='nasa.gov'; ieNavigate(); }, 300); closeStartMenu();">
+            <div class="start-menu-icon icon-ie"></div>
+            <span>NASA (1996)</span>
+          </div>
+        </div>
+      </div>
+      <div class="start-menu-item has-submenu" data-submenu="dokumente">
+        <div class="start-menu-icon icon-documents"></div>
+        <span>Dokumente</span>
+        <span class="submenu-arrow">▶</span>
+        <div class="start-submenu" id="submenu-dokumente">
+          <div class="start-menu-item" onclick="openReadmeInNotepad(); closeStartMenu();">
+            <div class="start-menu-icon icon-doc"></div>
+            <span>Readme.txt</span>
+          </div>
+        </div>
+      </div>
+      <div class="start-menu-item has-submenu" data-submenu="einstellungen">
+        <div class="start-menu-icon icon-settings"></div>
+        <span>Einstellungen</span>
+        <span class="submenu-arrow">▶</span>
+        <div class="start-submenu" id="submenu-einstellungen">
+          <div class="start-menu-item" onclick="triggerErrorOrBSOD('Systemsteuerung', 'SYSTEMSTEUERUNG.CPL'); closeStartMenu();">
+            <div class="start-menu-icon icon-control-panel-sm"></div>
+            <span>Systemsteuerung</span>
+          </div>
+          <div class="start-menu-item" onclick="triggerErrorOrBSOD('Drucker', 'DRUCKER'); closeStartMenu();">
+            <div class="start-menu-icon icon-printer-sm"></div>
+            <span>Drucker</span>
+          </div>
+          <div class="start-menu-item" onclick="openWindow('network'); closeStartMenu();">
+            <div class="start-menu-icon icon-network-sm"></div>
+            <span>Netzwerkverbindungen</span>
+          </div>
+        </div>
+      </div>
+      <div class="start-menu-item" onclick="triggerErrorOrBSOD('Suchen', 'SUCHEN.EXE'); closeStartMenu();">
+        <div class="start-menu-icon icon-search"></div>
+        <span>Suchen</span>
+      </div>
+      <div class="start-menu-item" onclick="openHelpDialog(); closeStartMenu();">
+        <div class="start-menu-icon icon-help"></div>
+        <span>Hilfe</span>
+      </div>
+      <div class="start-menu-item" onclick="showRunDialog(); closeStartMenu();">
+        <div class="start-menu-icon icon-run"></div>
+        <span>Ausführen...</span>
+      </div>
+      <div class="start-menu-separator"></div>
+      <div class="start-menu-item" onclick="showShutdownDialog(); closeStartMenu();">
+        <div class="start-menu-icon icon-shutdown"></div>
+        <span>Herunterfahren...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Run Dialog -->
+  <div class="window app-window" id="window-run" style="display:none; width:380px; height:auto; z-index:10000;">
+    <div class="title-bar" data-window="run">
+      <div class="title-bar-text">Ausführen</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close" onclick="closeWindow('run')"></button>
+      </div>
+    </div>
+    <div class="window-body" style="padding: 12px;">
+      <div class="field-row" style="align-items: flex-start;">
+        <div class="icon-img icon-run-lg" style="margin-right: 12px;"></div>
+        <div>
+          <p style="margin: 0 0 8px 0;">Geben Sie den Namen eines Programms, Ordners, Dokuments oder einer Internetressource ein.</p>
+          <div class="field-row-stacked">
+            <label for="run-input">Öffnen:</label>
+            <input type="text" id="run-input" style="width: 100%;">
+          </div>
+        </div>
+      </div>
+      <div style="text-align: right; margin-top: 12px;">
+        <button onclick="executeRun()" style="width: 75px;">OK</button>
+        <button onclick="closeWindow('run')" style="width: 75px; margin-left: 4px;">Abbrechen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shutdown Dialog -->
+  <div id="shutdown-overlay" style="display:none;">
+    <div class="window" id="shutdown-dialog">
+      <div class="title-bar">
+        <div class="title-bar-text">Windows herunterfahren</div>
+        <div class="title-bar-controls">
+          <button aria-label="Close" onclick="document.getElementById('shutdown-overlay').style.display='none'"></button>
+        </div>
+      </div>
+      <div class="window-body" style="padding: 16px;">
+        <div class="field-row" style="align-items: flex-start;">
+          <div class="icon-img icon-shutdown-lg" style="margin-right: 16px; flex-shrink: 0;"></div>
+          <div>
+            <p style="margin: 0 0 12px 0;">Wie soll der Computer heruntergefahren werden?</p>
+            <select id="shutdown-select" style="width: 100%;">
+              <option>Herunterfahren</option>
+              <option>Neu starten</option>
+              <option>Neu starten im MS-DOS-Modus</option>
+            </select>
+          </div>
+        </div>
+        <div style="text-align: right; margin-top: 16px;">
+          <button onclick="doShutdown()" style="width: 75px;">OK</button>
+          <button onclick="document.getElementById('shutdown-overlay').style.display='none'" style="width: 75px; margin-left: 4px;">Abbrechen</button>
+          <button onclick="showWin98Error('Hilfe', 'Die Windows-Hilfe ist nicht verfügbar.', 'warning')" style="width: 75px; margin-left: 4px;">Hilfe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TASKBAR ==================== -->
+  <div id="taskbar">
+    <button id="start-button" onclick="toggleStartMenu()">
+      <div class="windows-logo"></div>
+      <span>Start</span>
+    </button>
+    <div id="taskbar-separator"></div>
+    <div id="taskbar-items"></div>
+    <div id="system-tray">
+      <div id="tray-network" class="tray-icon" onclick="openWindow('network')" title="Netzwerkverbindung">
+        <div class="icon-img icon-tray-network"></div>
+      </div>
+      <div id="tray-volume" class="tray-icon" title="Lautstärke">
+        <div class="icon-img icon-tray-volume"></div>
+      </div>
+      <div id="clock"></div>
+    </div>
+  </div>
+
+  <!-- ==================== WIN98 ERROR DIALOG ==================== -->
+  <div id="error-overlay" style="display:none;">
+    <div class="window" id="error-dialog">
+      <div class="title-bar">
+        <div class="title-bar-text" id="error-title">Fehler</div>
+        <div class="title-bar-controls">
+          <button aria-label="Close" onclick="closeErrorDialog()"></button>
+        </div>
+      </div>
+      <div class="window-body" style="padding: 12px;">
+        <div style="display: flex; align-items: flex-start;">
+          <div id="error-icon-container" style="margin-right: 12px; flex-shrink: 0;"></div>
+          <p id="error-message" style="margin: 0; white-space: pre-wrap; font-size: 11px; line-height: 1.5;"></p>
+        </div>
+        <div style="text-align: center; margin-top: 16px;">
+          <button onclick="closeErrorDialog()" style="width: 75px;">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== BSOD (Blue Screen of Death) ==================== -->
+  <div id="bsod-screen" style="display:none;">
+    <div class="bsod-content">
+      <p class="bsod-header">Windows</p>
+      <p id="bsod-text"></p>
+      <p class="bsod-continue">Drücken Sie eine beliebige Taste, um fortzufahren <span class="bsod-cursor">_</span></p>
+    </div>
+  </div>
+
+  <script src="ie-cache.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

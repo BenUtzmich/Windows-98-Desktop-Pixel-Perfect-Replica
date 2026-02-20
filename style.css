@@ -1,0 +1,1292 @@
+/* ============================================
+   Windows 98 Desktop - Complete Stylesheet
+   ============================================ */
+
+/* Reset & Base */
+@font-face {
+  font-family: 'W98';
+  src: local('Microsoft Sans Serif'), local('MS Sans Serif'), local('Tahoma'), local('Arial');
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Pixelated MS Sans Serif", "Microsoft Sans Serif", "MS Sans Serif", "Tahoma", Arial, sans-serif;
+  font-size: 11px;
+  user-select: none;
+  cursor: default;
+}
+
+/* ==================== DESKTOP ==================== */
+#desktop {
+  width: 100%;
+  height: calc(100% - 30px);
+  background-color: #008080;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Desktop Icons */
+#desktop-icons {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 2px;
+  padding: 4px;
+  height: 100%;
+}
+
+.desktop-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 76px;
+  padding: 6px 2px 4px;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+.desktop-icon span {
+  color: #fff;
+  font-size: 11px;
+  margin-top: 2px;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.9);
+  word-wrap: break-word;
+  max-width: 72px;
+  line-height: 1.3;
+}
+
+.desktop-icon.selected {
+  background: none;
+  border: 1px dotted #fff;
+}
+
+.desktop-icon.selected span {
+  background: #000080;
+  color: #fff;
+  text-shadow: none;
+}
+
+.desktop-icon.selected .icon-img {
+  filter: brightness(0.7) sepia(1) hue-rotate(200deg) saturate(3);
+}
+
+/* ==================== ICON SYSTEM (SVG-based) ==================== */
+.icon-img {
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Desktop Icons - 32x32 */
+.icon-mycomputer {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='2' width='26' height='18' rx='1' fill='%23c0c0c0' stroke='%23000' stroke-width='1'/%3E%3Crect x='5' y='4' width='22' height='13' fill='%230058a8'/%3E%3Crect x='12' y='20' width='8' height='3' fill='%23c0c0c0' stroke='%23808080' stroke-width='0.5'/%3E%3Crect x='8' y='23' width='16' height='3' rx='1' fill='%23c0c0c0' stroke='%23000' stroke-width='0.5'/%3E%3Ccircle cx='27' cy='18' r='1' fill='%2300ff00'/%3E%3C/svg%3E");
+}
+
+.icon-notepad {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='2' width='20' height='28' fill='%23fff' stroke='%23000' stroke-width='1'/%3E%3Crect x='6' y='2' width='20' height='4' fill='%230000aa'/%3E%3Cline x1='9' y1='10' x2='23' y2='10' stroke='%23808080' stroke-width='0.5'/%3E%3Cline x1='9' y1='13' x2='23' y2='13' stroke='%23808080' stroke-width='0.5'/%3E%3Cline x1='9' y1='16' x2='23' y2='16' stroke='%23808080' stroke-width='0.5'/%3E%3Cline x1='9' y1='19' x2='20' y2='19' stroke='%23808080' stroke-width='0.5'/%3E%3Cline x1='9' y1='22' x2='23' y2='22' stroke='%23808080' stroke-width='0.5'/%3E%3Cline x1='9' y1='25' x2='18' y2='25' stroke='%23808080' stroke-width='0.5'/%3E%3C/svg%3E");
+}
+
+.icon-msdos {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='4' width='28' height='24' rx='1' fill='%23000' stroke='%23c0c0c0' stroke-width='1'/%3E%3Ctext x='5' y='14' fill='%23c0c0c0' font-family='monospace' font-size='7' font-weight='bold'%3EC:%5C%3E_%3C/text%3E%3Ctext x='5' y='22' fill='%23aaa' font-family='monospace' font-size='5'%3EDIR%3C/text%3E%3C/svg%3E");
+}
+
+.icon-minesweeper {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='28' height='28' fill='%23c0c0c0' stroke='%23808080' stroke-width='1'/%3E%3Crect x='4' y='4' width='8' height='8' fill='%23bdbdbd' stroke='%23808080' stroke-width='0.5'/%3E%3Ctext x='6' y='11' fill='%230000ff' font-family='Arial' font-size='8' font-weight='bold'%3E1%3C/text%3E%3Crect x='12' y='4' width='8' height='8' fill='%23bdbdbd' stroke='%23808080' stroke-width='0.5'/%3E%3Ctext x='14' y='11' fill='%23008000' font-family='Arial' font-size='8' font-weight='bold'%3E2%3C/text%3E%3Crect x='20' y='4' width='8' height='8' fill='%23bdbdbd' stroke='%23808080' stroke-width='0.5'/%3E%3Crect x='4' y='12' width='8' height='8' fill='%23bdbdbd' stroke='%23808080' stroke-width='0.5'/%3E%3Ccircle cx='8' cy='16' r='3' fill='%23000'/%3E%3Cline x1='8' y1='12' x2='8' y2='20' stroke='%23000' stroke-width='1'/%3E%3Cline x1='4' y1='16' x2='12' y2='16' stroke='%23000' stroke-width='1'/%3E%3Crect x='12' y='12' width='8' height='8' fill='%23ff0000'/%3E%3Cpolygon points='16,13 18,17 14,17' fill='%23000'/%3E%3Crect x='15' y='17' width='2' height='2' fill='%23000'/%3E%3Crect x='20' y='12' width='8' height='8' fill='%23bdbdbd' stroke='%23808080' stroke-width='0.5'/%3E%3Ctext x='22' y='19' fill='%23ff0000' font-family='Arial' font-size='8' font-weight='bold'%3E3%3C/text%3E%3Crect x='4' y='20' width='8' height='8' fill='%23bdbdbd' stroke='%23808080' stroke-width='0.5'/%3E%3Ctext x='6' y='27' fill='%230000ff' font-family='Arial' font-size='8' font-weight='bold'%3E1%3C/text%3E%3Crect x='12' y='20' width='8' height='8' fill='%23bdbdbd' stroke='%23808080' stroke-width='0.5'/%3E%3Ctext x='14' y='27' fill='%23008000' font-family='Arial' font-size='8' font-weight='bold'%3E2%3C/text%3E%3Crect x='20' y='20' width='8' height='8' fill='%23bdbdbd' stroke='%23808080' stroke-width='0.5'/%3E%3C/svg%3E");
+}
+
+.icon-recyclebin {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='8' y='6' width='16' height='22' rx='1' fill='%23c0c0c0' stroke='%23000' stroke-width='1'/%3E%3Crect x='10' y='3' width='12' height='4' rx='1' fill='%23c0c0c0' stroke='%23000' stroke-width='0.5'/%3E%3Crect x='13' y='1' width='6' height='3' rx='0.5' fill='%23808080' stroke='%23000' stroke-width='0.5'/%3E%3Cline x1='12' y1='10' x2='12' y2='24' stroke='%23808080' stroke-width='1'/%3E%3Cline x1='16' y1='10' x2='16' y2='24' stroke='%23808080' stroke-width='1'/%3E%3Cline x1='20' y1='10' x2='20' y2='24' stroke='%23808080' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+.icon-network-desktop {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='1' y='4' width='12' height='10' rx='1' fill='%23c0c0c0' stroke='%23000' stroke-width='0.5'/%3E%3Crect x='2' y='5' width='10' height='7' fill='%230058a8'/%3E%3Crect x='4' y='14' width='4' height='2' fill='%23c0c0c0'/%3E%3Crect x='19' y='4' width='12' height='10' rx='1' fill='%23c0c0c0' stroke='%23000' stroke-width='0.5'/%3E%3Crect x='20' y='5' width='10' height='7' fill='%230058a8'/%3E%3Crect x='22' y='14' width='4' height='2' fill='%23c0c0c0'/%3E%3Cline x1='7' y1='16' x2='7' y2='22' stroke='%23000' stroke-width='1'/%3E%3Cline x1='25' y1='16' x2='25' y2='22' stroke='%23000' stroke-width='1'/%3E%3Cline x1='7' y1='22' x2='25' y2='22' stroke='%23000' stroke-width='1'/%3E%3Cline x1='16' y1='22' x2='16' y2='26' stroke='%23000' stroke-width='1'/%3E%3Crect x='10' y='26' width='12' height='3' rx='1' fill='%23c0c0c0' stroke='%23000' stroke-width='0.5'/%3E%3C/svg%3E");
+}
+
+/* Small Icons - 16x16 for title bars and menus */
+.title-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 2px;
+  image-rendering: pixelated;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.icon-mycomputer-sm {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='1' y='1' width='14' height='10' rx='1' fill='%23c0c0c0' stroke='%23000' stroke-width='0.5'/%3E%3Crect x='2' y='2' width='12' height='7' fill='%230058a8'/%3E%3Crect x='6' y='11' width='4' height='2' fill='%23c0c0c0'/%3E%3Crect x='4' y='13' width='8' height='2' rx='0.5' fill='%23c0c0c0' stroke='%23000' stroke-width='0.3'/%3E%3C/svg%3E");
+}
+
+.icon-notepad-sm {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='3' y='1' width='10' height='14' fill='%23fff' stroke='%23000' stroke-width='0.5'/%3E%3Crect x='3' y='1' width='10' height='2' fill='%230000aa'/%3E%3Cline x1='5' y1='5' x2='11' y2='5' stroke='%23808080' stroke-width='0.3'/%3E%3Cline x1='5' y1='7' x2='11' y2='7' stroke='%23808080' stroke-width='0.3'/%3E%3Cline x1='5' y1='9' x2='11' y2='9' stroke='%23808080' stroke-width='0.3'/%3E%3Cline x1='5' y1='11' x2='9' y2='11' stroke='%23808080' stroke-width='0.3'/%3E%3C/svg%3E");
+}
+
+.icon-msdos-sm {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='1' y='2' width='14' height='12' rx='0.5' fill='%23000' stroke='%23c0c0c0' stroke-width='0.5'/%3E%3Ctext x='3' y='9' fill='%23c0c0c0' font-family='monospace' font-size='5'%3EC:%5C%3E%3C/text%3E%3C/svg%3E");
+}
+
+.icon-minesweeper-sm {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='1' y='1' width='14' height='14' fill='%23c0c0c0' stroke='%23808080' stroke-width='0.5'/%3E%3Ccircle cx='8' cy='8' r='3' fill='%23000'/%3E%3Cline x1='8' y1='3' x2='8' y2='13' stroke='%23000' stroke-width='0.8'/%3E%3Cline x1='3' y1='8' x2='13' y2='8' stroke='%23000' stroke-width='0.8'/%3E%3Cline x1='5' y1='5' x2='11' y2='11' stroke='%23000' stroke-width='0.6'/%3E%3Cline x1='11' y1='5' x2='5' y2='11' stroke='%23000' stroke-width='0.6'/%3E%3C/svg%3E");
+}
+
+.icon-recyclebin-sm {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='4' y='3' width='8' height='11' rx='0.5' fill='%23c0c0c0' stroke='%23000' stroke-width='0.5'/%3E%3Crect x='5' y='1' width='6' height='3' rx='0.5' fill='%23808080' stroke='%23000' stroke-width='0.3'/%3E%3Cline x1='6' y1='5' x2='6' y2='12' stroke='%23808080' stroke-width='0.5'/%3E%3Cline x1='8' y1='5' x2='8' y2='12' stroke='%23808080' stroke-width='0.5'/%3E%3Cline x1='10' y1='5' x2='10' y2='12' stroke='%23808080' stroke-width='0.5'/%3E%3C/svg%3E");
+}
+
+.icon-network-sm {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='0' y='2' width='6' height='5' rx='0.5' fill='%23c0c0c0' stroke='%23000' stroke-width='0.3'/%3E%3Crect x='1' y='3' width='4' height='3' fill='%230058a8'/%3E%3Crect x='10' y='2' width='6' height='5' rx='0.5' fill='%23c0c0c0' stroke='%23000' stroke-width='0.3'/%3E%3Crect x='11' y='3' width='4' height='3' fill='%230058a8'/%3E%3Cline x1='3' y1='7' x2='3' y2='11' stroke='%23000' stroke-width='0.5'/%3E%3Cline x1='13' y1='7' x2='13' y2='11' stroke='%23000' stroke-width='0.5'/%3E%3Cline x1='3' y1='11' x2='13' y2='11' stroke='%23000' stroke-width='0.5'/%3E%3Cline x1='8' y1='11' x2='8' y2='14' stroke='%23000' stroke-width='0.5'/%3E%3C/svg%3E");
+}
+
+/* Start Menu Icons */
+.start-menu-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  image-rendering: pixelated;
+  background-size: contain;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+}
+
+.icon-programs {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='1' y='1' width='14' height='14' fill='%23c0c0c0' stroke='%23000' stroke-width='0.5'/%3E%3Crect x='2' y='2' width='12' height='2' fill='%230000aa'/%3E%3Crect x='3' y='5' width='4' height='4' fill='%23ffff00' stroke='%23808080' stroke-width='0.3'/%3E%3Crect x='8' y='5' width='4' height='4' fill='%2300aa00' stroke='%23808080' stroke-width='0.3'/%3E%3Crect x='3' y='10' width='4' height='4' fill='%23aa0000' stroke='%23808080' stroke-width='0.3'/%3E%3Crect x='8' y='10' width='4' height='4' fill='%230000aa' stroke='%23808080' stroke-width='0.3'/%3E%3C/svg%3E");
+}
+
+.icon-favorites {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='1' y='3' width='14' height='11' rx='1' fill='%23ffff80' stroke='%23808000' stroke-width='0.5'/%3E%3Crect x='1' y='3' width='6' height='2' rx='0.5' fill='%23ffff80' stroke='%23808000' stroke-width='0.5'/%3E%3Cpolygon points='8,5 9,8 12,8 9.5,10 10.5,13 8,11 5.5,13 6.5,10 4,8 7,8' fill='%23ff0000'/%3E%3C/svg%3E");
+}
+
+.icon-documents {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='1' y='3' width='14' height='11' rx='1' fill='%23ffff80' stroke='%23808000' stroke-width='0.5'/%3E%3Crect x='1' y='3' width='6' height='2' rx='0.5' fill='%23ffff80' stroke='%23808000' stroke-width='0.5'/%3E%3Crect x='5' y='6' width='7' height='6' fill='%23fff' stroke='%23000' stroke-width='0.3'/%3E%3Cline x1='6' y1='8' x2='11' y2='8' stroke='%23808080' stroke-width='0.3'/%3E%3Cline x1='6' y1='10' x2='10' y2='10' stroke='%23808080' stroke-width='0.3'/%3E%3C/svg%3E");
+}
+
+.icon-settings {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='1' y='3' width='14' height='11' rx='1' fill='%23ffff80' stroke='%23808000' stroke-width='0.5'/%3E%3Crect x='1' y='3' width='6' height='2' rx='0.5' fill='%23ffff80' stroke='%23808000' stroke-width='0.5'/%3E%3Ccircle cx='8' cy='9' r='3' fill='none' stroke='%23808080' stroke-width='1.5'/%3E%3Crect x='7' y='5' width='2' height='2' fill='%23808080'/%3E%3Crect x='7' y='11' width='2' height='2' fill='%23808080'/%3E%3Crect x='4' y='8' width='2' height='2' fill='%23808080'/%3E%3Crect x='10' y='8' width='2' height='2' fill='%23808080'/%3E%3C/svg%3E");
+}
+
+.icon-search {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='7' cy='7' r='4' fill='%23fff' stroke='%23000' stroke-width='1.5'/%3E%3Cline x1='10' y1='10' x2='14' y2='14' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+.icon-help {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='1' y='1' width='14' height='14' rx='1' fill='%23800080' stroke='%23000' stroke-width='0.5'/%3E%3Ctext x='8' y='13' fill='%23ffff00' font-family='Arial' font-size='12' font-weight='bold' text-anchor='middle'%3E?%3C/text%3E%3C/svg%3E");
+}
+
+.icon-run {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='1' y='4' width='14' height='10' rx='1' fill='%23c0c0c0' stroke='%23000' stroke-width='0.5'/%3E%3Crect x='2' y='4' width='12' height='2' fill='%230000aa'/%3E%3Crect x='3' y='8' width='10' height='4' fill='%23fff' stroke='%23808080' stroke-width='0.3'/%3E%3C/svg%3E");
+}
+
+.icon-run-lg {
+  width: 32px;
+  height: 32px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='6' width='28' height='20' rx='1' fill='%23c0c0c0' stroke='%23000' stroke-width='1'/%3E%3Crect x='3' y='6' width='26' height='4' fill='%230000aa'/%3E%3Crect x='5' y='14' width='22' height='8' fill='%23fff' stroke='%23808080' stroke-width='0.5'/%3E%3C/svg%3E");
+  image-rendering: pixelated;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.icon-shutdown {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='3' y='2' width='10' height='8' rx='1' fill='%23c0c0c0' stroke='%23000' stroke-width='0.5'/%3E%3Crect x='4' y='3' width='8' height='5' fill='%230058a8'/%3E%3Crect x='5' y='10' width='3' height='2' fill='%23c0c0c0'/%3E%3Crect x='3' y='12' width='10' height='2' rx='0.5' fill='%23c0c0c0' stroke='%23000' stroke-width='0.3'/%3E%3Cpolygon points='12,7 15,11 9,11' fill='%23ff0000'/%3E%3C/svg%3E");
+}
+
+.icon-shutdown-lg {
+  width: 32px;
+  height: 32px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='4' y='3' width='18' height='14' rx='1' fill='%23c0c0c0' stroke='%23000' stroke-width='1'/%3E%3Crect x='6' y='5' width='14' height='9' fill='%230058a8'/%3E%3Crect x='9' y='17' width='8' height='3' fill='%23c0c0c0'/%3E%3Crect x='6' y='20' width='14' height='3' rx='1' fill='%23c0c0c0' stroke='%23000' stroke-width='0.5'/%3E%3Cpolygon points='22,12 28,20 16,20' fill='%23ff0000' stroke='%23800000' stroke-width='0.5'/%3E%3C/svg%3E");
+  image-rendering: pixelated;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.icon-ie {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%230078d4' stroke='%23000' stroke-width='0.5'/%3E%3Cellipse cx='8' cy='8' rx='3' ry='6' fill='none' stroke='%23fff' stroke-width='0.5'/%3E%3Cline x1='2' y1='8' x2='14' y2='8' stroke='%23fff' stroke-width='0.5'/%3E%3Ctext x='8' y='11' fill='%23fff' font-family='Arial' font-size='7' font-weight='bold' text-anchor='middle'%3Ee%3C/text%3E%3C/svg%3E");
+}
+
+.icon-doc {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='3' y='1' width='10' height='14' fill='%23fff' stroke='%23000' stroke-width='0.5'/%3E%3Cline x1='5' y1='4' x2='11' y2='4' stroke='%23808080' stroke-width='0.3'/%3E%3Cline x1='5' y1='6' x2='11' y2='6' stroke='%23808080' stroke-width='0.3'/%3E%3Cline x1='5' y1='8' x2='11' y2='8' stroke='%23808080' stroke-width='0.3'/%3E%3Cline x1='5' y1='10' x2='9' y2='10' stroke='%23808080' stroke-width='0.3'/%3E%3C/svg%3E");
+}
+
+.icon-control-panel-sm {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='1' y='1' width='14' height='14' rx='1' fill='%23c0c0c0' stroke='%23000' stroke-width='0.5'/%3E%3Ccircle cx='5' cy='5' r='2' fill='%23808080'/%3E%3Ccircle cx='11' cy='5' r='2' fill='%23808080'/%3E%3Ccircle cx='5' cy='11' r='2' fill='%23808080'/%3E%3Ccircle cx='11' cy='11' r='2' fill='%23808080'/%3E%3C/svg%3E");
+}
+
+.icon-printer-sm {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='4' y='1' width='8' height='4' fill='%23fff' stroke='%23000' stroke-width='0.3'/%3E%3Crect x='2' y='5' width='12' height='7' rx='0.5' fill='%23c0c0c0' stroke='%23000' stroke-width='0.5'/%3E%3Crect x='4' y='10' width='8' height='5' fill='%23fff' stroke='%23000' stroke-width='0.3'/%3E%3C/svg%3E");
+}
+
+/* Explorer icons */
+.icon-drive-c {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='4' y='8' width='24' height='16' rx='2' fill='%23c0c0c0' stroke='%23000' stroke-width='1'/%3E%3Crect x='6' y='10' width='10' height='8' fill='%23808080'/%3E%3Crect x='18' y='14' width='4' height='2' rx='1' fill='%2300aa00'/%3E%3Crect x='18' y='18' width='4' height='2' rx='1' fill='%23aa0000'/%3E%3C/svg%3E");
+}
+
+.icon-drive-cd {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='%23e0e0e0' stroke='%23808080' stroke-width='1'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23fff' stroke='%23808080' stroke-width='0.5'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%23d0d0d0' stroke-width='0.5'/%3E%3C/svg%3E");
+}
+
+.icon-control-panel {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='28' height='28' rx='2' fill='%23c0c0c0' stroke='%23000' stroke-width='1'/%3E%3Ccircle cx='10' cy='10' r='4' fill='%23808080'/%3E%3Ccircle cx='22' cy='10' r='4' fill='%23808080'/%3E%3Ccircle cx='10' cy='22' r='4' fill='%23808080'/%3E%3Ccircle cx='22' cy='22' r='4' fill='%23808080'/%3E%3C/svg%3E");
+}
+
+.icon-printer {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='8' y='2' width='16' height='8' fill='%23fff' stroke='%23000' stroke-width='0.5'/%3E%3Crect x='4' y='10' width='24' height='12' rx='1' fill='%23c0c0c0' stroke='%23000' stroke-width='1'/%3E%3Crect x='8' y='20' width='16' height='10' fill='%23fff' stroke='%23000' stroke-width='0.5'/%3E%3Ccircle cx='24' cy='14' r='1.5' fill='%2300aa00'/%3E%3C/svg%3E");
+}
+
+.icon-dialup {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='10' width='28' height='12' rx='2' fill='%23c0c0c0' stroke='%23000' stroke-width='1'/%3E%3Crect x='4' y='12' width='6' height='3' fill='%23808080'/%3E%3Crect x='4' y='17' width='6' height='3' fill='%23808080'/%3E%3Ccircle cx='24' cy='14' r='1.5' fill='%2300aa00'/%3E%3Ccircle cx='24' cy='18' r='1.5' fill='%23aa0000'/%3E%3C/svg%3E");
+}
+
+/* Tray Icons */
+.icon-tray-network {
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='1' y='3' width='6' height='5' rx='0.5' fill='%23c0c0c0' stroke='%23000' stroke-width='0.3'/%3E%3Crect x='2' y='4' width='4' height='3' fill='%230058a8'/%3E%3Crect x='9' y='3' width='6' height='5' rx='0.5' fill='%23c0c0c0' stroke='%23000' stroke-width='0.3'/%3E%3Crect x='10' y='4' width='4' height='3' fill='%230058a8'/%3E%3Cline x1='4' y1='8' x2='4' y2='11' stroke='%23000' stroke-width='0.5'/%3E%3Cline x1='12' y1='8' x2='12' y2='11' stroke='%23000' stroke-width='0.5'/%3E%3Cline x1='4' y1='11' x2='12' y2='11' stroke='%23000' stroke-width='0.5'/%3E%3C/svg%3E");
+}
+
+.icon-tray-volume {
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='2' y='5' width='4' height='6' fill='%23808080'/%3E%3Cpolygon points='6,5 11,1 11,15 6,11' fill='%23808080' stroke='%23000' stroke-width='0.3'/%3E%3Cpath d='M12,5 Q15,8 12,11' fill='none' stroke='%23000' stroke-width='0.8'/%3E%3C/svg%3E");
+}
+
+.icon-net-send {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='4' y='6' width='18' height='14' rx='1' fill='%23c0c0c0' stroke='%23000' stroke-width='0.5'/%3E%3Crect x='6' y='8' width='14' height='9' fill='%230058a8'/%3E%3Cpolygon points='24,10 30,16 24,22' fill='%2300aa00'/%3E%3C/svg%3E");
+  image-rendering: pixelated;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.icon-net-recv {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='10' y='6' width='18' height='14' rx='1' fill='%23c0c0c0' stroke='%23000' stroke-width='0.5'/%3E%3Crect x='12' y='8' width='14' height='9' fill='%230058a8'/%3E%3Cpolygon points='8,10 2,16 8,22' fill='%230000aa'/%3E%3C/svg%3E");
+  image-rendering: pixelated;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* ==================== TASKBAR ==================== */
+#taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: #c0c0c0;
+  border-top: 1px solid #fff;
+  display: flex;
+  align-items: center;
+  padding: 2px 2px;
+  z-index: 9999;
+  box-shadow: inset 0 1px 0 #dfdfdf;
+}
+
+#start-button {
+  display: flex;
+  align-items: center;
+  height: 22px;
+  padding: 1px 4px;
+  font-weight: bold;
+  font-size: 11px;
+  min-width: 54px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+#start-button.active {
+  box-shadow: inset 1px 1px 1px #808080, inset -1px -1px 1px #fff;
+  padding: 2px 3px 0px 5px;
+}
+
+.windows-logo {
+  width: 16px;
+  height: 16px;
+  margin-right: 3px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='1' y='1' width='6' height='6' fill='%23ff0000'/%3E%3Crect x='9' y='1' width='6' height='6' fill='%230000ff'/%3E%3Crect x='1' y='9' width='6' height='6' fill='%2300aa00'/%3E%3Crect x='9' y='9' width='6' height='6' fill='%23ffff00'/%3E%3Crect x='7' y='0' width='2' height='16' fill='%23c0c0c0'/%3E%3Crect x='0' y='7' width='16' height='2' fill='%23c0c0c0'/%3E%3C/svg%3E");
+  background-size: contain;
+  image-rendering: pixelated;
+}
+
+#taskbar-separator {
+  width: 2px;
+  height: 20px;
+  margin: 0 2px;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #fff;
+}
+
+#taskbar-items {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  overflow: hidden;
+  padding: 0 2px;
+  height: 24px;
+}
+
+.taskbar-item {
+  display: flex;
+  align-items: center;
+  height: 22px;
+  padding: 1px 4px;
+  font-size: 11px;
+  max-width: 160px;
+  min-width: 60px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border: none;
+  background: #c0c0c0;
+  box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #fff, inset -2px -2px 0 #404040, inset 2px 2px 0 #dfdfdf;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+
+.taskbar-item.active {
+  box-shadow: inset 1px 1px 0 #808080, inset -1px -1px 0 #fff;
+  background: #d4d0c8;
+  font-weight: bold;
+}
+
+.taskbar-item .taskbar-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 3px;
+  flex-shrink: 0;
+  image-rendering: pixelated;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#system-tray {
+  display: flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 4px 0 2px;
+  border: 1px solid;
+  border-color: #808080 #fff #fff #808080;
+  background: #c0c0c0;
+  gap: 3px;
+  flex-shrink: 0;
+  margin-left: 2px;
+}
+
+.tray-icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+#clock {
+  font-size: 11px;
+  padding: 0 2px;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+/* ==================== START MENU ==================== */
+#start-menu {
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  z-index: 10000;
+  display: flex;
+  flex-direction: row;
+  padding: 3px;
+  box-shadow: 2px 0 4px rgba(0,0,0,0.4);
+  border: none;
+}
+
+.start-menu-sidebar {
+  width: 22px;
+  background: linear-gradient(to top, #000080, #1084d0);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 6px;
+  flex-shrink: 0;
+}
+
+.start-menu-sidebar-text {
+  color: #c0c0c0;
+  font-size: 16px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 1px;
+  font-family: Arial, sans-serif;
+}
+
+.start-menu-sidebar-text strong {
+  color: #fff;
+  font-weight: bold;
+}
+
+.start-menu-content {
+  flex: 1;
+  padding: 2px 0;
+  background: #c0c0c0;
+  min-width: 160px;
+}
+
+.start-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  cursor: pointer;
+  position: relative;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.start-menu-item:hover {
+  background: #000080;
+  color: #fff;
+}
+
+.start-menu-item .submenu-arrow {
+  margin-left: auto;
+  font-size: 8px;
+  padding-left: 16px;
+}
+
+.start-menu-separator {
+  height: 0;
+  margin: 3px 4px;
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #fff;
+}
+
+.start-submenu {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: -3px;
+  background: #c0c0c0;
+  border: 2px outset #dfdfdf;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  padding: 2px 0;
+  min-width: 200px;
+  z-index: 10001;
+}
+
+.start-menu-item.has-submenu:hover > .start-submenu {
+  display: block;
+}
+
+.start-submenu .start-menu-item:hover {
+  background: #000080;
+  color: #fff;
+}
+
+/* ==================== APP WINDOWS ==================== */
+.app-window {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  min-height: 100px;
+  z-index: 1;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+}
+
+.app-window .title-bar {
+  cursor: move;
+  flex-shrink: 0;
+}
+
+.app-window .window-body {
+  flex: 1;
+  overflow: hidden;
+}
+
+.app-window .status-bar {
+  flex-shrink: 0;
+}
+
+/* ==================== MY COMPUTER ==================== */
+.mycomputer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+}
+
+.explorer-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  padding: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.explorer-icon:hover {
+  background: #000080;
+  color: #fff;
+}
+
+.explorer-icon span {
+  font-size: 11px;
+  margin-top: 4px;
+  word-wrap: break-word;
+}
+
+/* ==================== NOTEPAD ==================== */
+.notepad-menubar, .minesweeper-menubar {
+  display: flex;
+  background: #c0c0c0;
+  border-bottom: 1px solid #808080;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.notepad-menu-item {
+  padding: 2px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  position: relative;
+}
+
+.notepad-menu-item:hover {
+  background: #000080;
+  color: #fff;
+}
+
+.notepad-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #c0c0c0;
+  border: 2px outset #dfdfdf;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  padding: 2px 0;
+  min-width: 200px;
+  z-index: 10002;
+  color: #000;
+}
+
+.notepad-menu-item:hover > .notepad-dropdown {
+  display: block;
+}
+
+.notepad-dropdown-item {
+  padding: 3px 20px;
+  font-size: 11px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.notepad-dropdown-item:hover {
+  background: #000080;
+  color: #fff;
+}
+
+.notepad-dropdown-separator {
+  height: 0;
+  margin: 2px 4px;
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #fff;
+}
+
+.notepad-body {
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.notepad-textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  resize: none;
+  padding: 2px 4px;
+  font-family: "Fixedsys", "Lucida Console", "Courier New", monospace;
+  font-size: 14px;
+  outline: none;
+  flex: 1;
+  box-shadow: inset 1px 1px 0 #808080, inset -1px -1px 0 #fff;
+  user-select: text;
+  cursor: text;
+}
+
+/* ==================== MS-DOS ==================== */
+.dos-body {
+  background: #000;
+  color: #c0c0c0;
+  font-family: "Fixedsys", "Lucida Console", "Courier New", monospace;
+  font-size: 14px;
+  padding: 4px !important;
+  overflow-y: auto;
+  cursor: text;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 28px);
+}
+
+#dos-output {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  flex-shrink: 0;
+  user-select: text;
+}
+
+#dos-input-line {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+#dos-prompt {
+  white-space: nowrap;
+  margin-right: 0;
+}
+
+#dos-input {
+  background: transparent;
+  border: none;
+  color: #c0c0c0;
+  font-family: "Fixedsys", "Lucida Console", "Courier New", monospace;
+  font-size: 14px;
+  outline: none;
+  flex: 1;
+  caret-color: #c0c0c0;
+  padding: 0;
+  margin: 0;
+}
+
+/* ==================== MINESWEEPER ==================== */
+.minesweeper-body {
+  padding: 6px !important;
+  background: #c0c0c0;
+}
+
+.minesweeper-panel {
+  border: 3px inset #fff;
+  padding: 5px;
+  background: #c0c0c0;
+}
+
+.minesweeper-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 2px;
+  margin-bottom: 5px;
+  border: 2px inset #fff;
+  background: #c0c0c0;
+}
+
+.ms-counter {
+  background: #000;
+  color: #ff0000;
+  font-family: "Courier New", monospace;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 1px 3px;
+  min-width: 48px;
+  text-align: center;
+  border: 1px inset #808080;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.ms-face-btn {
+  width: 26px;
+  height: 26px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.minesweeper-grid {
+  display: inline-grid;
+  border: 3px inset #fff;
+  background: #c0c0c0;
+}
+
+.ms-cell {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px outset #fff;
+  background: #c0c0c0;
+  padding: 0;
+  user-select: none;
+  line-height: 1;
+  min-width: 16px;
+  min-height: 16px;
+}
+
+.ms-cell.revealed {
+  border: 1px solid #808080;
+  background: #c0c0c0;
+  cursor: default;
+}
+
+.ms-cell.mine-exploded {
+  background: #ff0000;
+}
+
+.ms-cell.flagged::after {
+  content: "🚩";
+  font-size: 10px;
+}
+
+.ms-cell .ms-1 { color: #0000ff; }
+.ms-cell .ms-2 { color: #008000; }
+.ms-cell .ms-3 { color: #ff0000; }
+.ms-cell .ms-4 { color: #000080; }
+.ms-cell .ms-5 { color: #800000; }
+.ms-cell .ms-6 { color: #008080; }
+.ms-cell .ms-7 { color: #000; }
+.ms-cell .ms-8 { color: #808080; }
+
+/* ==================== NETWORK DIALOG ==================== */
+.network-info {
+  font-size: 11px;
+}
+
+/* ==================== SHUTDOWN OVERLAY ==================== */
+#shutdown-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,128,0.85);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#shutdown-dialog {
+  width: 380px;
+}
+
+/* ==================== WINDOW RESIZE HANDLES ==================== */
+.app-window .resize-handle {
+  position: absolute;
+  z-index: 10;
+}
+
+.resize-handle-n { top: -3px; left: 3px; right: 3px; height: 6px; cursor: n-resize; }
+.resize-handle-s { bottom: -3px; left: 3px; right: 3px; height: 6px; cursor: s-resize; }
+.resize-handle-e { right: -3px; top: 3px; bottom: 3px; width: 6px; cursor: e-resize; }
+.resize-handle-w { left: -3px; top: 3px; bottom: 3px; width: 6px; cursor: w-resize; }
+.resize-handle-ne { top: -3px; right: -3px; width: 8px; height: 8px; cursor: ne-resize; }
+.resize-handle-nw { top: -3px; left: -3px; width: 8px; height: 8px; cursor: nw-resize; }
+.resize-handle-se { bottom: -3px; right: -3px; width: 8px; height: 8px; cursor: se-resize; }
+.resize-handle-sw { bottom: -3px; left: -3px; width: 8px; height: 8px; cursor: sw-resize; }
+
+/* ==================== MAXIMIZED WINDOW ==================== */
+.app-window.maximized {
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: calc(100vh - 30px) !important;
+}
+
+/* ==================== SHUTDOWN SCREEN ==================== */
+#shutdown-screen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  z-index: 999999;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+#shutdown-screen.active {
+  display: flex;
+}
+
+#shutdown-screen p {
+  color: #ff8c00;
+  font-size: 24px;
+  font-family: "MS Sans Serif", Arial, sans-serif;
+}
+
+/* ==================== SCROLLBAR STYLING ==================== */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: #c0c0c0;
+  background-image: url("data:image/svg+xml,%3Csvg width='2' height='2' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='1' height='1' fill='%23c0c0c0'/%3E%3Crect x='1' y='0' width='1' height='1' fill='%23fff'/%3E%3Crect x='0' y='1' width='1' height='1' fill='%23fff'/%3E%3Crect x='1' y='1' width='1' height='1' fill='%23c0c0c0'/%3E%3C/svg%3E");
+  background-size: 2px 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border: 1px solid;
+  border-color: #fff #808080 #808080 #fff;
+  box-shadow: inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #404040;
+}
+
+::-webkit-scrollbar-button {
+  background: #c0c0c0;
+  border: 1px solid;
+  border-color: #fff #808080 #808080 #fff;
+  width: 16px;
+  height: 16px;
+}
+
+/* ==================== WIN98 ERROR DIALOG ==================== */
+#error-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.15);
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#error-dialog {
+  min-width: 320px;
+  max-width: 450px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+@keyframes errorShake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
+
+/* ==================== BSOD (Blue Screen of Death) ==================== */
+#bsod-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #0000aa;
+  z-index: 9999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
+.bsod-content {
+  color: #fff;
+  font-family: "Fixedsys", "Lucida Console", "Courier New", monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 720px;
+  width: 90%;
+  text-align: left;
+  padding: 20px;
+}
+
+.bsod-header {
+  background: #a8a8a8;
+  color: #0000aa;
+  display: inline-block;
+  padding: 1px 8px;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+#bsod-text {
+  white-space: pre-wrap;
+  margin: 16px 0;
+  line-height: 1.5;
+}
+
+.bsod-continue {
+  margin-top: 24px;
+}
+
+.bsod-cursor {
+  animation: bsodBlink 0.8s step-end infinite;
+}
+
+@keyframes bsodBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ==================== EXPLORER NAVIGATION ==================== */
+.explorer-breadcrumb {
+  display: flex;
+  align-items: center;
+  padding: 4px 6px;
+  border-bottom: 1px solid #808080;
+  background: #c0c0c0;
+  margin-bottom: 4px;
+  gap: 8px;
+}
+
+.explorer-back-btn {
+  font-size: 11px;
+  padding: 2px 8px;
+  cursor: pointer;
+  min-width: 60px;
+}
+
+.explorer-path {
+  font-size: 11px;
+  padding: 2px 4px;
+  background: #fff;
+  border: 1px inset #808080;
+  flex: 1;
+  font-family: "Fixedsys", "Lucida Console", "Courier New", monospace;
+}
+
+/* ==================== ADDITIONAL ICONS ==================== */
+.icon-folder {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M2 6 L2 26 L30 26 L30 10 L14 10 L12 6 Z' fill='%23ffcc00' stroke='%23996600' stroke-width='0.8'/%3E%3Cpath d='M2 10 L30 10 L30 26 L2 26 Z' fill='%23ffdd44' stroke='%23996600' stroke-width='0.5'/%3E%3C/svg%3E");
+}
+
+.icon-file {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M6 2 L6 30 L26 30 L26 8 L20 2 Z' fill='%23fff' stroke='%23000' stroke-width='0.8'/%3E%3Cpath d='M20 2 L20 8 L26 8' fill='%23c0c0c0' stroke='%23000' stroke-width='0.5'/%3E%3Cline x1='9' y1='12' x2='23' y2='12' stroke='%23808080' stroke-width='0.4'/%3E%3Cline x1='9' y1='15' x2='23' y2='15' stroke='%23808080' stroke-width='0.4'/%3E%3Cline x1='9' y1='18' x2='23' y2='18' stroke='%23808080' stroke-width='0.4'/%3E%3Cline x1='9' y1='21' x2='18' y2='21' stroke='%23808080' stroke-width='0.4'/%3E%3C/svg%3E");
+}
+
+/* ==================== CALCULATOR ==================== */
+.calc-menubar {
+  display: flex;
+  background: #c0c0c0;
+  border-bottom: 1px solid #808080;
+  padding: 1px 0;
+}
+
+.calc-body {
+  padding: 4px !important;
+  background: #c0c0c0;
+}
+
+.calc-panel {
+  padding: 6px;
+}
+
+.calc-display {
+  width: 100%;
+  text-align: right;
+  font-size: 16px;
+  font-family: "Courier New", monospace;
+  padding: 4px 6px;
+  margin-bottom: 8px;
+  background: #fff;
+  border: none;
+  box-sizing: border-box;
+}
+
+.calc-memory-indicator {
+  font-size: 11px;
+  height: 14px;
+  margin-bottom: 4px;
+  padding-left: 4px;
+  color: #000;
+  font-weight: bold;
+}
+
+.calc-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.calc-row {
+  display: flex;
+  gap: 3px;
+}
+
+.calc-btn {
+  min-width: 36px;
+  height: 28px;
+  font-size: 11px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  border: none;
+  padding: 2px 4px;
+}
+
+.calc-btn:active {
+  border-style: inset;
+}
+
+.calc-btn-num {
+  background: #e0e0e0;
+  color: #0000ff;
+  font-weight: bold;
+  min-width: 36px;
+}
+
+.calc-btn-op {
+  background: #e0e0e0;
+  color: #ff0000;
+  min-width: 36px;
+}
+
+.calc-btn-func {
+  background: #e0e0e0;
+  color: #800000;
+  min-width: 60px;
+  font-size: 10px;
+}
+
+.calc-btn-red {
+  background: #e0e0e0;
+  color: #ff0000;
+  min-width: 36px;
+  font-size: 10px;
+}
+
+.calc-btn-blue {
+  background: #e0e0e0;
+  color: #0000ff;
+  min-width: 36px;
+  font-size: 10px;
+}
+
+/* ==================== INTERNET EXPLORER ==================== */
+.ie-toolbar {
+  display: flex;
+  background: #c0c0c0;
+  padding: 2px 4px;
+  gap: 2px;
+  border-bottom: 1px solid #808080;
+}
+
+.ie-toolbar-btn {
+  font-size: 10px;
+  padding: 2px 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  border: none;
+  background: #c0c0c0;
+}
+
+.ie-toolbar-btn:hover {
+  background: #d4d0c8;
+}
+
+.ie-toolbar-btn:active {
+  border-style: inset;
+}
+
+.ie-addressbar {
+  display: flex;
+  align-items: center;
+  background: #c0c0c0;
+  padding: 3px 6px;
+  gap: 4px;
+  border-bottom: 1px solid #808080;
+}
+
+.ie-address-label {
+  font-size: 11px;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.ie-url-input {
+  flex: 1;
+  font-size: 12px;
+  padding: 2px 4px;
+  font-family: Arial, sans-serif;
+}
+
+.ie-go-btn {
+  font-size: 11px;
+  padding: 2px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.ie-body {
+  padding: 0 !important;
+  overflow: auto !important;
+  height: calc(100% - 100px);
+  background: #fff;
+}
+
+.ie-content {
+  width: 100%;
+  min-height: 100%;
+  overflow: visible;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ie-start-page {
+  text-align: center;
+  padding: 40px;
+}
+
+.ie-logo {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cellipse cx='32' cy='32' rx='28' ry='24' fill='none' stroke='%230066cc' stroke-width='4'/%3E%3Cellipse cx='32' cy='32' rx='28' ry='8' fill='none' stroke='%230066cc' stroke-width='3' transform='rotate(-25 32 32)'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%230066cc'/%3E%3Ctext x='32' y='37' text-anchor='middle' fill='%23fff' font-family='Arial' font-size='16' font-weight='bold'%3Ee%3C/text%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.ie-statusbar {
+  display: flex;
+}
+
+.ie-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  width: 100%;
+}
+
+.ie-loading-text {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #666;
+  margin-top: 16px;
+}
+
+.ie-loading-bar-container {
+  width: 200px;
+  height: 16px;
+  border: 1px inset;
+  background: #fff;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.ie-loading-bar {
+  height: 100%;
+  width: 0%;
+  background: #000080;
+  transition: width 0.3s;
+}
+
+.ie-screenshot {
+  width: 100%;
+  display: block;
+  image-rendering: auto;
+}
+
+.ie-error-page {
+  text-align: center;
+  padding: 40px;
+  font-family: Arial, sans-serif;
+}
+
+.ie-error-page h3 {
+  color: #000;
+  margin-bottom: 12px;
+}
+
+.ie-error-page p {
+  font-size: 12px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ==================== CALCULATOR & IE DESKTOP ICONS ==================== */
+.icon-calculator {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='5' y='2' width='22' height='28' rx='1' fill='%23c0c0c0' stroke='%23000' stroke-width='0.8'/%3E%3Crect x='7' y='4' width='18' height='7' fill='%23a8d8a8' stroke='%23808080' stroke-width='0.5'/%3E%3Crect x='8' y='14' width='4' height='3' fill='%23e0e0e0' stroke='%23808080' stroke-width='0.3'/%3E%3Crect x='14' y='14' width='4' height='3' fill='%23e0e0e0' stroke='%23808080' stroke-width='0.3'/%3E%3Crect x='20' y='14' width='4' height='3' fill='%23e0e0e0' stroke='%23808080' stroke-width='0.3'/%3E%3Crect x='8' y='19' width='4' height='3' fill='%23e0e0e0' stroke='%23808080' stroke-width='0.3'/%3E%3Crect x='14' y='19' width='4' height='3' fill='%23e0e0e0' stroke='%23808080' stroke-width='0.3'/%3E%3Crect x='20' y='19' width='4' height='3' fill='%23e0e0e0' stroke='%23808080' stroke-width='0.3'/%3E%3Crect x='8' y='24' width='4' height='3' fill='%23e0e0e0' stroke='%23808080' stroke-width='0.3'/%3E%3Crect x='14' y='24' width='4' height='3' fill='%23e0e0e0' stroke='%23808080' stroke-width='0.3'/%3E%3Crect x='20' y='24' width='4' height='3' fill='%23e0e0e0' stroke='%23808080' stroke-width='0.3'/%3E%3C/svg%3E");
+}
+
+.icon-calculator-sm {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='2' y='1' width='12' height='14' rx='1' fill='%23c0c0c0' stroke='%23000' stroke-width='0.5'/%3E%3Crect x='3' y='2' width='10' height='4' fill='%23a8d8a8' stroke='%23808080' stroke-width='0.3'/%3E%3Crect x='3' y='7' width='3' height='2' fill='%23e0e0e0' stroke='%23808080' stroke-width='0.2'/%3E%3Crect x='7' y='7' width='3' height='2' fill='%23e0e0e0' stroke='%23808080' stroke-width='0.2'/%3E%3Crect x='11' y='7' width='2' height='2' fill='%23e0e0e0' stroke='%23808080' stroke-width='0.2'/%3E%3Crect x='3' y='10' width='3' height='2' fill='%23e0e0e0' stroke='%23808080' stroke-width='0.2'/%3E%3Crect x='7' y='10' width='3' height='2' fill='%23e0e0e0' stroke='%23808080' stroke-width='0.2'/%3E%3Crect x='11' y='10' width='2' height='2' fill='%23e0e0e0' stroke='%23808080' stroke-width='0.2'/%3E%3C/svg%3E");
+}
+
+.icon-ie-desktop {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cellipse cx='16' cy='16' rx='13' ry='12' fill='none' stroke='%230066cc' stroke-width='2.5'/%3E%3Cellipse cx='16' cy='16' rx='13' ry='4.5' fill='none' stroke='%230066cc' stroke-width='1.8' transform='rotate(-25 16 16)'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%230066cc'/%3E%3Ctext x='16' y='20' text-anchor='middle' fill='%23fff' font-family='Arial' font-size='10' font-weight='bold'%3Ee%3C/text%3E%3C/svg%3E");
+}
+
+.icon-ie-sm {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cellipse cx='8' cy='8' rx='6.5' ry='6' fill='none' stroke='%230066cc' stroke-width='1.5'/%3E%3Cellipse cx='8' cy='8' rx='6.5' ry='2.5' fill='none' stroke='%230066cc' stroke-width='1' transform='rotate(-25 8 8)'/%3E%3Ccircle cx='8' cy='8' r='3' fill='%230066cc'/%3E%3Ctext x='8' y='10' text-anchor='middle' fill='%23fff' font-family='Arial' font-size='5' font-weight='bold'%3Ee%3C/text%3E%3C/svg%3E");
+}
+
+/* ==================== IE WAYBACK MACHINE ==================== */
+.ie-archive-banner {
+  background: linear-gradient(to bottom, #ffffcc, #fff8cc);
+  border-bottom: 1px solid #cccc88;
+  padding: 4px 8px;
+  font-size: 11px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  font-family: "Pixelated MS Sans Serif", "Microsoft Sans Serif", Arial, sans-serif;
+}
+
+.ie-archive-banner-modern {
+  background: linear-gradient(to bottom, #ffeecc, #ffe8bb);
+  border-bottom: 1px solid #cc9944;
+}
+
+.ie-archive-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.ie-archive-iframe {
+  flex: 1;
+  width: 100%;
+  border: none;
+  background: #fff;
+}
+
+.ie-archive-banner-oldest {
+  background: linear-gradient(to bottom, #cce5ff, #b8d4f0);
+  border-bottom: 1px solid #6699cc;
+}
+
+/* Cache banner - green for instant-loaded pages */
+.ie-cache-banner {
+  background: linear-gradient(to bottom, #d4edda, #c3e6cb) !important;
+  border-bottom: 1px solid #6c9; 
+}
